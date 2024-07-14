@@ -9,5 +9,8 @@ export default defineConfig({
         hmr: {
             overlay: false,  // Tắt overlay lỗi HMR để dễ dàng phát hiện lỗi trong console
         }
+    },
+    build: {
+        chunkSizeWarningLimit: 10000,
     }
 })

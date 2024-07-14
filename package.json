@@ -57,7 +57,7 @@
     "client": "vite",
     "start": "vite",
     "dev": "vite",
-    "build": "VITE_CJS_TRACE=true && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
