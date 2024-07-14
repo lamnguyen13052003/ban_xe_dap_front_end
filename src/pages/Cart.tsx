@@ -16,7 +16,7 @@ export default function Cart() {
     const cartItems: CartItemType[] = useSelector((state: RootState) => state.cart.cartItems);
 
     return (
-        <Container>
+        <Container className={"mb-3"}>
             <Box>
                 <CartBreadcrumbs status={CartBreadcrumbStatus.CART}/>
             </Box>
