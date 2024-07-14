@@ -79,25 +79,16 @@ function getRootState(count: number, filterClick: number) {
 
     useEffect(() => {
         if (hasFilter) return
-        const promise = dispatch(getProductsByCategory({category: category_id, page: count}))
-        return () => {
-            promise.abort()
-        }
+        dispatch(getProductsByCategory({category: category_id, page: count}))
     }, [count]);
 
     useEffect(() => {
-        const promiseFilter = dispatch(getProductsByFilter({category: category_id, page: count, queryParams: query}))
-        return () => {
-            promiseFilter.abort()
-        }
+        dispatch(getProductsByFilter({category: category_id, page: count, queryParams: query}))
     }, [filterClick]);
 
 
     useEffect(() => {
-        const promiseFilter = dispatch(getFilterAttribute(category_id))
-        return () => {
-            promiseFilter.abort()
-        }
+        dispatch(getFilterAttribute(category_id))
     }, []);
     return {query, data, filter, hasFilter}
 }

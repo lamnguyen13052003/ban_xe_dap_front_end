@@ -69,9 +69,7 @@ const ProductDetailCol = (product: ProductType) => {
     }
 
     useEffect(() => {
-        return () => {
-            dispatch(setReviews(product.reviews))
-        }
+        dispatch(setReviews(product.reviews))
     }, []);
 
     return (

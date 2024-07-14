@@ -26,25 +26,23 @@ export function ProductDetail() {
     const [product, setProduct] = useState<ProductType>();
     const nav = useNavigate();
     useEffect(() => {
-        return () => {
-            window.scrollTo(0, 0)
-            try {
-                const idString = name?.split("--")[1];
-                axiosHttp.get<any, AxiosResponse<any, ResponseApi<ProductType>>, any>(`api/product-detail/${idString}`, {
-                    params: {
-                        user: user?._id ? user._id : ""
-                    }
+        window.scrollTo(0, 0)
+        try {
+            const idString = name?.split("--")[1];
+            axiosHttp.get<any, AxiosResponse<any, ResponseApi<ProductType>>, any>(`api/product-detail/${idString}`, {
+                params: {
+                    user: user?._id ? user._id : ""
+                }
+            })
+                .then((response: AxiosResponse<ResponseApi<ProductType>>) => {
+                    setProduct(response.data.data)
                 })
-                    .then((response: AxiosResponse<ResponseApi<ProductType>>) => {
-                        setProduct(response.data.data)
-                    })
-                    .catch(() => {
-                            nav("/");
-                        }
-                    )
-            } catch (error) {
-                nav("/");
-            }
+                .catch(() => {
+                        nav("/");
+                    }
+                )
+        } catch (error) {
+            nav("/");
         }
     }, []);
 

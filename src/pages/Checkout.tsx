@@ -88,15 +88,13 @@ export default function Checkout() {
         }
         window.addEventListener('beforeunload', eventBack);
 
-        return () => {
-            window.removeEventListener('beforeunload', eventBack);
-            axios.get<any, AxiosResponse<ResponseApiEsgoo<LocaltionEsgooType[]>>, any>("https://esgoo.net/api-tinhthanh/1/0.htm")
-                .then((response: AxiosResponse<ResponseApiEsgoo<LocaltionEsgooType[]>>) => {
-                    setProvinces(response.data.data)
-                }).catch((error) => {
-                console.log(error)
-            });
-        }
+        window.removeEventListener('beforeunload', eventBack);
+        axios.get<any, AxiosResponse<ResponseApiEsgoo<LocaltionEsgooType[]>>, any>("https://esgoo.net/api-tinhthanh/1/0.htm")
+            .then((response: AxiosResponse<ResponseApiEsgoo<LocaltionEsgooType[]>>) => {
+                setProvinces(response.data.data)
+            }).catch((error) => {
+            console.log(error)
+        });
     }, []);
 
     const selectProvinceHandle = (id: number) => {
@@ -344,11 +342,12 @@ export default function Checkout() {
                                 </Button>
                             </Stack>
                             <Box sx={{
-                               justifyContent: "center",
-                                 alignItems: "center",
+                                justifyContent: "center",
+                                alignItems: "center",
                             }} className={` ${qrPayStatus ? 'd-flex' : 'd-none'}`}>
                                 {
-                                    qrPay ? <img className={"w-100"} src={qrPay} alt={"qrPay"}/> : <CircularProgress color="success"/>
+                                    qrPay ? <img className={"w-100"} src={qrPay} alt={"qrPay"}/> :
+                                        <CircularProgress color="success"/>
                                 }
                             </Box>
                         </Col>

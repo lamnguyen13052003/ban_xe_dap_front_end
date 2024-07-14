@@ -12,8 +12,8 @@ function getQueryOnURL(category_id: number, page: number) {
     const materials: string[] = searchParams.getAll('materials[]') as string[]
     const targetUsings: string[] = searchParams.getAll('targetUsings[]') as string[]
     const prices: string = searchParams.get('prices') as string
-    const newProduct : string | null = searchParams.get('newProduct')
-    const sort: string | null= searchParams.get('sort') as string
+    const newProduct: string | null = searchParams.get('newProduct')
+    const sort: string | null = searchParams.get('sort') as string
     const bestSale: string | null = searchParams.get('bestSale')
     const additional: number | null = getValueAdditional(newProduct, sort, bestSale)
 
@@ -25,9 +25,7 @@ function getQueryOnURL(category_id: number, page: number) {
 
     useEffect(() => {
         const promiseFilter = dispatch(getProductsByFilter({category: category_id, page: page, queryParams: query}))
-        return () => {
-            promiseFilter.abort()
-        }
+        promiseFilter.abort()
     }, []);
     return isHasFilter
 }
