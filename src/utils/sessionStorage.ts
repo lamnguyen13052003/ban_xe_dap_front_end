@@ -55,10 +55,9 @@ const getRecentlyProduct = (): ProductType[] => {
 const pushRecentlyProduct = (product: ProductType) => {
     let recentlyProductList: ProductType[] = getRecentlyProduct();
 
-    if (recentlyProductList.filter(product => product._id === product._id).length) return;
+    if (recentlyProductList.filter(productFilter => productFilter._id === product._id).length) return;
 
     recentlyProductList.push(product);
-
     sessionStorage.setItem(KEY.RECENTLY_PRODUCT, JSON.stringify(recentlyProductList))
 }
 
