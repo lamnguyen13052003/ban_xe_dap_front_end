@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Widget} from "./ProductDetailComponent";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import {threeHand,success,express,shield} from "../../assets/images/product-detail/imges"
 
 const StickyWidget = (props: { warranty: string }) => {
     return (
@@ -12,7 +13,7 @@ const StickyWidget = (props: { warranty: string }) => {
                     <Col className={"trust"} sm={12}>
                         <h4>LÝ DO NÊN MUA HÀNG TẠI XEDAPGIAKHO:</h4>
                         <div className={"trust-item"}>
-                            <img src={"src/assets/images/product-detail/icon-product-detail-2.webp"}/>
+                            <img src={threeHand} alt={"threeHand.webp"}/>
                             <div>
                                 <h4>
                                     Bảo hành tận nhà
@@ -23,7 +24,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src={"src/assets/images/product-detail/icon-product-detail-4.webp"}/>
+                            <img src={express} alt={"express.webp"}/>
                             <div>
                                 <h4>
                                     Giao hàng miễn phí
@@ -34,7 +35,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src={"src/assets/images/product-detail/icon-product-detail-1.webp"}/>
+                            <img src={shield} alt={"shield.webp"}/>
                             <div>
                                 <h4>
                                     Mua hàng trả góp
@@ -45,7 +46,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src={"src/assets/images/product-detail/icon-product-detail-3.webp"}/>
+                            <img src={success} alt={"success.webp"}/>
                             <div>
                                 <h4>
                                     Cam kết chính hãng

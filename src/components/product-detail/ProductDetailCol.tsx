@@ -27,6 +27,7 @@ import {ResponseApi} from '../../types/response.type';
 import {ReviewProductResponseType} from '../../types/reviewProductResponse.type';
 import {useForm} from "react-hook-form";
 import {addReview, setReviews} from '../../slice/reviewProduct.slice';
+import {ship} from "../../assets/images/product-detail/imges";
 
 const ProductDetailCol = (product: ProductType) => {
     const nav = useNavigate();
@@ -127,7 +128,7 @@ const ProductDetailCol = (product: ProductType) => {
                                             )}
 
                                         </p>
-                                        <img src={"src/assets/images/product-detail/ship.jpg"} alt="Shipping"/>
+                                        <img src={ship} alt="Shipping"/>
                                         <div className="product-detail-offer">
                                             <h3>ƯU ĐÃI ĐẶC BIỆT</h3>
                                             <ul>
