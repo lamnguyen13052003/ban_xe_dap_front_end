@@ -2,4 +2,4 @@
 /package-lock.json
 /.idea/
 /dist/
-/package-lock.json
+/build/

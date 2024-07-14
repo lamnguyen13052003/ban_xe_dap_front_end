@@ -63,7 +63,6 @@ function Login() {
     return (
         <form className={"p-3 d-flex flex-column w-100 align-items-center gap-3"}
               method={"POST"}
-              action={"http://localhost:1305/api/login"}
               onSubmit={handleSubmit(onSubmit)}
         >
             <TextField

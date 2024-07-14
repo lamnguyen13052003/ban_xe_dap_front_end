@@ -54,13 +54,10 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "client": "vite",
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [
