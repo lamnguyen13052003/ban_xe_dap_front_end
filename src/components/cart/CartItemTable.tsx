@@ -31,14 +31,10 @@ export function CartItemTable() {
                 </TableHead>
                 <TableBody>
                     {cartItems.map((item: CartItemType) => (
-                        <TableRow>
-                            <TableCell>
-                                <CartItem
-                                    key={item.id.toString()}
-                                    {...item}
-                                />
-                            </TableCell>
-                        </TableRow>
+                        <CartItem
+                            key={item.id.toString()}
+                            {...item}
+                        />
                     ))}
                 </TableBody>
             </Table>

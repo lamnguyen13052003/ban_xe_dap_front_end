@@ -127,7 +127,7 @@ const ProductDetailCol = (product: ProductType) => {
                                             )}
 
                                         </p>
-                                        <img src="/src/assets/images/product-detail/ship.jpg" alt="Shipping"/>
+                                        <img src={"src/assets/images/product-detail/ship.jpg"} alt="Shipping"/>
                                         <div className="product-detail-offer">
                                             <h3>ƯU ĐÃI ĐẶC BIỆT</h3>
                                             <ul>

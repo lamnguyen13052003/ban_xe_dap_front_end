@@ -12,7 +12,7 @@ const StickyWidget = (props: { warranty: string }) => {
                     <Col className={"trust"} sm={12}>
                         <h4>LÝ DO NÊN MUA HÀNG TẠI XEDAPGIAKHO:</h4>
                         <div className={"trust-item"}>
-                            <img src="/src/assets/images/product-detail/icon-product-detail-2.webp"/>
+                            <img src={"src/assets/images/product-detail/icon-product-detail-2.webp"}/>
                             <div>
                                 <h4>
                                     Bảo hành tận nhà
@@ -23,7 +23,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src="/src/assets/images/product-detail/icon-product-detail-4.webp"/>
+                            <img src={"src/assets/images/product-detail/icon-product-detail-4.webp"}/>
                             <div>
                                 <h4>
                                     Giao hàng miễn phí
@@ -34,7 +34,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src="/src/assets/images/product-detail/icon-product-detail-1.webp"/>
+                            <img src={"src/assets/images/product-detail/icon-product-detail-1.webp"}/>
                             <div>
                                 <h4>
                                     Mua hàng trả góp
@@ -45,7 +45,7 @@ const StickyWidget = (props: { warranty: string }) => {
                             </div>
                         </div>
                         <div className={"trust-item"}>
-                            <img src="/src/assets/images/product-detail/icon-product-detail-3.webp"/>
+                            <img src={"src/assets/images/product-detail/icon-product-detail-3.webp"}/>
                             <div>
                                 <h4>
                                     Cam kết chính hãng
