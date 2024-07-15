@@ -20,7 +20,8 @@ export default function Product(props: ProductType) {
     }
 
     return (
-        <Box className={'m-2 shadow-lg  rounded-4 overflow-hidden bg-white'} sx={{width: '305px', height: 'auto'}}>
+        <Box className={'m-2 shadow-lg  rounded-4 overflow-hidden bg-white'} sx={{width: '280px', height: 'auto'}}
+             title={props.name}>
             <Box className={'position-relative'} sx={{height: '218px'}}>
                 <Stack direction={'column'} className={'position-absolute'} sx={{
                     top: "5px",
@@ -29,21 +30,25 @@ export default function Product(props: ProductType) {
                     {props.sale && <LabelDiscount discount={props.discount ? props.discount : 0}/>}
                     {props.new && <LabelNew zIndex={2}/>}
                 </Stack>
-                <Box className={'object-fit-cover overflow-hidden position-absolute top-0 start-0 z-0'}
-                     sx={{width: '306px', height: '100%'}}>
-                    <Image className={`${styles.image_hover}`} src={props.model[0].pathImageColor} alt={props.name}
-                           style={{width: '100%'}}/>
+                <Box className={'d-flex justify-content-center align-items-center overflow-hidden w-100 h-100'}>
+                    <Image className={`${styles.image_hover}`} style={{
+                        width: "100%",
+                        height: "100%"
+                    }} src={props.model[0].pathImageColor} alt={props.name}/>
                 </Box>
             </Box>
 
             <Box className={'p-2 text-center fw-bold'}>
-                <Stack className={'d-flex align-items-center justify-content-center'} direction={"column"}
+                <Stack className={'d-flex align-items-center justify-content-center mt-0'}
+                       direction={"column"}
                        spacing={1}>
                     <Box className={`${styles.text_line_clamp}`}>
-                        <p>{props.name}</p>
+                        <p className={"mb-0"} style={{
+                            maxHeight: "20px",
+                        }}>{props.name}</p>
                     </Box>
 
-                    <Stack className={'p-2 '} direction={"row"} spacing={3}>
+                    <Stack className={'p-2 mt-0'} direction={"row"} spacing={3}>
                         {props.sale ?
                             <Stack direction={"row"} alignItems={'center'} gap={2}>
                                     <span className={'fs-4 text-danger'}>
@@ -57,8 +62,8 @@ export default function Product(props: ProductType) {
                         }
                     </Stack>
                     <Link to={`/product/${props.name.replaceAll(" ", "-")}--${props._id.toString()}`}
-                          className={"text-decoration-none"} onClick={onClickSeeDetailHandle}>
-                        <Button className={'text-uppercase mb-3'} variant={"contained"} color={"info"}
+                          className={"text-decoration-none mt-0"} onClick={onClickSeeDetailHandle}>
+                        <Button className={'text-uppercase'} variant={"contained"} color={"info"}
                                 startIcon={<ShoppingCartIcon/>}
                                 style={{paddingInline: '15px', paddingBlock: '5px', textWrap: 'nowrap'}}>
                             Xem chi tiết

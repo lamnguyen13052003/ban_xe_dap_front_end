@@ -15,8 +15,7 @@ function Contact() {
     return (
         <Container className={"my-4"}>
             <h3 className={"ms-1"}>Liên hệ với chúng tôi</h3>
-
-            <Row className={"align-items-center m-0"}>
+            <Row className={"align-items-center m-0 row-gap-3"}>
                 <Col md={7}>
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group as={Col} md="12" className="position-relative mb-3" controlId={"fullName"}>

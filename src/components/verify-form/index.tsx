@@ -97,11 +97,11 @@ function VerifyAccount() {
               onSubmit={handleSubmit(onSubmit)}
         >
             <TextField hidden={true} name={"email"} id="outlined-basic" type={"email"}/>
-            <Stack direction={"row"} gap={1}>
+            <Stack direction={"row"} flexWrap={"wrap"} gap={1}>
                 {renderInput()}
             </Stack>
             <br/>
-            <Button className={"w-25"} type={"submit"} variant="contained" color="success">
+            <Button type={"submit"} variant="contained" color="success">
                 Xác thực
             </Button>
         </form>

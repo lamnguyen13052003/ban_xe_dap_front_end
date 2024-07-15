@@ -155,7 +155,8 @@ const renderCarousel = () => {
     return <Carousel key={"Carousel_list"} className={'w-100'}>
         {banner_images.map((image, index) => {
             return (<Carousel.Item key={index} style={{
-                height: "600px"
+                maxHeight: "600px",
+                minHeight: "200px"
             }}>
                 <Image src={image} rounded className={'h-100'} width={'100%'}/>
             </Carousel.Item>)
