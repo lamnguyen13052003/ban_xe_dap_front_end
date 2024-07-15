@@ -16,7 +16,7 @@ function Header() {
         <>
             <Container>
                 <Row className={`py-2 align-items-center justify-content-around`}>
-                    <Col md={2}>
+                    <Col md={6} lg={2} className={"d-flex flex-column align-items-center"}>
                         <Link to={"/"} className={`${styles.clear_a}`}>
                             <Box className={`justify-content-center d-flex flex-column align-items-center`}>
                                 <Avatar alt="Logo" src={logo} sx={{
@@ -28,7 +28,7 @@ function Header() {
                         </Link>
                         <Menu/>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} lg={6}>
                         <InputGroup>
                             <Form. Control id={"search-bar"} type="text" placeholder={""}
                                    className={`${styles.input_focus} ${styles.input}`}/>
@@ -37,11 +37,11 @@ function Header() {
                             }}><Search/></label>
                         </InputGroup>
                     </Col>
-                    <Col md={2}>
+                    <Col md={6} lg={2}>
                         <ButtonAuth/>
                     </Col>
-                    <Col md={2}>
-                        <Stack direction={"column"} gap={2} alignItems={"center"}>
+                    <Col md={6} lg={2} >
+                        <Stack className={"flex-row flex-md-column justify-content-center"} gap={2} alignItems={"center"}>
                             <ButtonCart/>
                             <ContactButton/>
                         </Stack>

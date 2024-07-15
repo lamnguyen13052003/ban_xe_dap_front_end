@@ -91,8 +91,9 @@ function Login() {
                 error={!!errors.password}
                 helperText={errors.password?.message}
                 variant="outlined"/>
-            <Button className={"w-25"} type={"submit"} variant="contained" color="success">Đăng
-                nhập</Button>
+            <Button type={"submit"} variant="contained" color="success">
+                Đăng nhập
+            </Button>
             <Link to={"/forget-password"} className={"text-decoration-none mt-3"}>Quên mật khẩu?</Link>
         </form>
     );

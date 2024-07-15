@@ -1,6 +1,6 @@
 import React from 'react';
-import {Box, Button, Typography} from "@mui/material";
-import {Container} from "react-bootstrap";
+import {Box, Button, Stack, Typography} from "@mui/material";
+import {Col, Container, Row} from "react-bootstrap";
 import WestIcon from '@mui/icons-material/West';
 import styled from 'styled-components';
 import styles from "../components/cart/scss/Cart.module.css";
@@ -17,13 +17,11 @@ export default function Cart() {
 
     return (
         <Container className={"mb-3"}>
-            <Box>
-                <CartBreadcrumbs status={CartBreadcrumbStatus.CART}/>
-            </Box>
-            <CartWrapper>
-                <CartTable>
+            <CartBreadcrumbs status={CartBreadcrumbStatus.CART}/>
+            <Row>
+                <Col lg={9}>
                     <CartItemTable/>
-                    <ContinueShopping>
+                    <Stack direction={"row"} className={"mt-3 justify-content-md-start justify-content-center"}>
                         <Button className={`${styles.update_cart}`}
                                 sx={{padding: " 5px 16px", border: "2px solid #439eef", fontWeight: "700"}}
                                 onClick={() => {
@@ -32,12 +30,12 @@ export default function Cart() {
                             <WestIcon fontSize="small"/>
                             <Typography>TIẾP TỤC XEM SẢN PHẨM</Typography>
                         </Button>
-                    </ContinueShopping>
-                </CartTable>
-                <CheckOut>
+                    </Stack>
+                </Col>
+                <Col lg={3}>
                     <CheckOutTable cartItems={cartItems}/>
-                </CheckOut>
-            </CartWrapper>
+                </Col>
+            </Row>
         </Container>
     );
 }

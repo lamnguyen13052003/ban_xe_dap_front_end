@@ -67,8 +67,9 @@ function ListCategory(
     }
 ) {
     return (
-        <Box width={'100%'} {...props}>
-            <Stack direction={"row"} justifyContent={"space-between"}>
+        <Box width={'100%'} {...props} >
+            <Stack direction={"row"} flexWrap={"wrap"}
+                   className={"justify-content-center row-gap-lg-2 gap-2"}>
                 {renderCategoryItem()}
             </Stack>
         </Box>

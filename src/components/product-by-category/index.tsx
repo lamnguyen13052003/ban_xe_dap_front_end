@@ -18,7 +18,7 @@ function ProductByCategory(props: ProductByCategoryType) {
                 <h2 className={'text-uppercase text-black fw-bold d-inline m-0'}>{props.title}</h2>
             </Stack>
             <ProductList products={props.products}/>
-            <Stack direction={"row"} justifyContent={"center"} width={"100%"} py={"40px"}>
+            <Stack direction={"row"} justifyContent={"center"}  width={"100%"} py={"40px"}>
                 <Link to={props.to} className={'text-decoration-none'}>
                     <Button className={'text-uppercase text-white rounded-3 fs-4'} style={{
                         background: "linear-gradient(149.58deg, rgb(0, 91, 206) 27.56%, rgb(105, 157, 243) 85.53%)",

@@ -37,34 +37,37 @@ function Pay() {
                         }}>
                             <thead>
                             <tr>
-                                <th>Thông tin</th>
+                                <th style={{
+                                    minWidth: "150px",
+                                }}>Thông tin
+                                </th>
                                 <th className={"d-flex justify-content-end"}>Giá trị</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Thời gian</td>
+                                <td className={"pe-3"}>Thời gian</td>
                                 <td className={"d-flex justify-content-end"}>{formatDateTime(new Date())}</td>
                             </tr>
                             <tr>
-                                <td>Tên người nhận</td>
-                                <td className={"d-flex justify-content-end"}>{payStatus.infoPay?.fullName}</td>
+                                <td className={"pe-3"}>Tên người nhận</td>
+                                <td className={"text-end"}>{payStatus.infoPay?.fullName}</td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td className={"d-flex justify-content-end"}>{payStatus.infoPay?.email}</td>
+                                <td className={"pe-3"}>Email</td>
+                                <td className={"text-end"}>{payStatus.infoPay?.email}</td>
                             </tr>
                             <tr>
-                                <td>Số điện thoại</td>
-                                <td className={"d-flex justify-content-end"}>{payStatus.infoPay?.phoneNumber}</td>
+                                <td className={"pe-3"}>Số điện thoại</td>
+                                <td className={"text-end"}>{payStatus.infoPay?.phoneNumber}</td>
                             </tr>
                             <tr>
-                                <td>Địa chỉ</td>
-                                <td className={"d-flex justify-content-end"}>{payStatus.infoPay?.fullAddress}</td>
+                                <td className={"pe-3"}>Địa chỉ</td>
+                                <td className={"text-end"}>{payStatus.infoPay?.fullAddress}</td>
                             </tr>
                             <tr>
-                                <td>Phương thức thanh toán</td>
-                                <td className={"d-flex justify-content-end"}>{payStatus.infoPay?.payMethod}</td>
+                                <td className={"pe-3"}>Phương thức thanh toán</td>
+                                <td className={"text-end"}>{payStatus.infoPay?.payMethod}</td>
                             </tr>
                             </tbody>
                         </Table>

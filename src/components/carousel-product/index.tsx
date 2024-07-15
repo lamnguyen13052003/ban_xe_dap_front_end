@@ -11,7 +11,7 @@ function CarouselProduct(props: { products: ProductType[] }) {
                 if (index % 4 !== 0) return;
                 return (
                     <Carousel.Item key={product._id.toString()}>
-                        <Stack direction={"row"} justifyContent={'space-between'}>
+                        <Stack direction={"row"} className={"justify-content-center"} flexWrap={"wrap"} justifyContent={'space-between'}>
                             <Product key={`CarouselProduct_${Math.random()}`} {...props.products[index]}/>
                             {props.products[index + 1] ? <Product key={`CarouselProduct_${Math.random()}`} {...props.products[index + 1]}/> : ''}
                             {props.products[index + 2] ? <Product key={`CarouselProduct_${Math.random()}`} {...props.products[index + 2]}/> : ''}

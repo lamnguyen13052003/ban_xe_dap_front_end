@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import ProductDetailCol from "../components/product-detail/ProductDetailCol";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Row, Col, Container} from "react-bootstrap";
 import StickyWidget from "../components/product-detail/Widget";
-import {Box} from "@mui/material";
+import {Box, Stack} from "@mui/material";
 import {Splide, SplideSlide, SplideTrack} from '@splidejs/react-splide';
 import {ProductType} from "../types/product.type";
 import Product from "../components/product";
@@ -17,6 +15,7 @@ import axiosHttp from "../utils/axiosHttp";
 import {getRecentlyProduct} from "../utils/sessionStorage";
 import {RootState} from '../configs/store';
 import {useSelector} from 'react-redux';
+import CarouselProduct from "../components/carousel-product";
 
 
 export function ProductDetail() {
@@ -49,50 +48,26 @@ export function ProductDetail() {
     const recentlyProduct = getRecentlyProduct()
 
     return (
-        <>
-            <Container className={"mt-5"}>
-                <Row>
-                    {product ?
-                        (<>
-                            <Col sm={9}><ProductDetailCol {...product}/></Col>
-                            <Col sm={3}><StickyWidget warranty={product.specifications.warranty}/></Col>
-                        </>) :
-                        (<h2>Loading....</h2>)}
-                </Row>
-                <Row className={`mt-3 ${!recentlyProduct.length && 'd-none'}`}>
-                    <Box className={"fs-3"}>Sản phẩm xem gần đây</Box>
-                    <Splide hasTrack={false} aria-label="Current Product" key={"current-product"} options={{
-                        perPage: 3,
-                        rewind: true,
-                        lazyLoad: true,
-                        autoplay: true,
-                        speed: 5000,
-                        gap: 120
-                    }}>
-                        <SplideTrack>
-                            {recentlyProduct.map(product =>
-                                <SplideSlide key={product._id.toString()}>
-                                    <Product {...product} />
-                                </SplideSlide>
-                            )}
-                        </SplideTrack>
-
-
-                        <div className="splide__progress">
-                            <div className="splide__progress__bar"/>
-                        </div>
-
-                        <div className="splide__arrows">
-                            <button className="splide__arrow splide__arrow--prev">
-                                <FontAwesomeIcon icon={faChevronRight}/>
-                            </button>
-                            <button className="splide__arrow splide__arrow--next">
-                                <FontAwesomeIcon icon={faChevronRight}/>
-                            </button>
-                        </div>
-                    </Splide>
-                </Row>
-            </Container>
-        </>
+        <Row className={"w-100 m-0 p-xxl-5 px-md-0 px-0"}>
+            <Col xxl={12}>
+                {product ?
+                    (<Row>
+                        <Col xl={9} md={12}>
+                            <ProductDetailCol {...product}/>
+                        </Col>
+                        <Col xl={3} md={12}>
+                            <StickyWidget warranty={product.specifications.warranty}/>
+                        </Col>
+                    </Row>) :
+                    (<h2>Loading....</h2>)
+                }
+            </Col>
+            <Col xxl={12} className={`mt-3 px-5 ${!recentlyProduct.length && 'd-none'}`}>
+                <Box className={"fs-3"}>Sản phẩm xem gần đây</Box>
+                <Stack direction={"row"} flexWrap={"wrap"}>
+                    <CarouselProduct products={recentlyProduct}/>
+                </Stack>
+            </Col>
+        </Row>
     );
 }

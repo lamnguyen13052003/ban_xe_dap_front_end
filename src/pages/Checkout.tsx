@@ -162,9 +162,9 @@ export default function Checkout() {
             <Box>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Row>
-                        <Col md={4}>
+                        <Col lg={3} md={12}>
                             <h3>Thông tin người dùng</h3>
-                            <Form.Group as={Col} md="12" className="position-relative mb-3" controlId={"fullName"}>
+                            <Form.Group className="position-relative mb-3" controlId={"fullName"}>
                                 <Form.Label>Họ và tên</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -178,7 +178,7 @@ export default function Checkout() {
                                     {errors.fullName?.message}
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="12" className="position-relative mb-3" controlId={"email"}>
+                            <Form.Group className="position-relative mb-3" controlId={"email"}>
                                 <Form.Label>Email</Form.Label>
                                 <Form.Control
                                     type="email"
@@ -196,7 +196,7 @@ export default function Checkout() {
                                     {errors.email?.message}
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="12" className="position-relative mb-3" controlId={"phoneNumber"}>
+                            <Form.Group className="position-relative mb-3" controlId={"phoneNumber"}>
                                 <Form.Label>Số điện thoại</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -214,13 +214,20 @@ export default function Checkout() {
                                     {errors.phoneNumber?.message}
                                 </Form.Control.Feedback>
                             </Form.Group>
-                            <Form.Group as={Col} md="12" className="position-relative mb-3" controlId={"note"}>
+                            <Form.Group className="position-relative mb-3" controlId={"note"}>
                                 <Form.Label>Ghi chú</Form.Label>
                                 <Form.Control
                                     as={"textarea"}
                                     placeholder={"Ghi chú..."}
                                 />
                             </Form.Group>
+
+                            <Divider className={"d-md-block d-lg-none"} style={{
+                                width: "100%",
+                                backgroundColor: "black",
+                                height: "2px",
+                                marginBottom: "10px"
+                            }} orientation="vertical" flexItem/>
                         </Col>
                         <Col md={1} className={"d-flex justify-content-center"}>
                             <Divider style={{
@@ -229,7 +236,7 @@ export default function Checkout() {
                                 height: "100%"
                             }} orientation="vertical" flexItem/>
                         </Col>
-                        <Col md={3}>
+                        <Col lg={3} md={12}>
                             <h3>Thông tin giao hàng</h3>
                             <Form.Group as={"div"} className="position-relative mb-3" controlId={"province"}>
                                 <Form.Label>Chọn tỉnh thành/thành phố</Form.Label>
@@ -311,6 +318,13 @@ export default function Checkout() {
                                     {errors.fullAddress?.message}
                                 </Form.Control.Feedback>
                             </Form.Group>
+
+                            <Divider className={"d-md-block d-lg-none"} style={{
+                                width: "100%",
+                                backgroundColor: "black",
+                                height: "2px",
+                                marginBottom: "10px"
+                            }} orientation="vertical" flexItem/>
                         </Col>
                         <Col md={1} className={"d-flex justify-content-center"}>
                             <Divider style={{
@@ -319,7 +333,7 @@ export default function Checkout() {
                                 height: "100%"
                             }} orientation="vertical" flexItem/>
                         </Col>
-                        <Col md={3}>
+                        <Col lg={4} md={12}>
                             <h3>Thông tin thanh toán</h3>
                             <Stack direction={"row"} className="mb-3" gap={1}>
                                 <Button title={"Thanh toán khi nhận hàng"}
@@ -346,13 +360,13 @@ export default function Checkout() {
                                 alignItems: "center",
                             }} className={` ${qrPayStatus ? 'd-flex' : 'd-none'}`}>
                                 {
-                                    qrPay ? <img className={"w-100"} src={qrPay} alt={"qrPay"}/> :
-                                        <CircularProgress color="success"/>
+                                    qrPay ? <img className={"w-100"} src={qrPay} alt={"qrPay"}/>
+                                        : <CircularProgress color="success"/>
                                 }
                             </Box>
                         </Col>
                     </Row>
-                    <Stack direction={"row"} justifyContent={"end"}>
+                    <Stack direction={"row"} className={"justify-content-lg-end justify-content-center"}>
                         <ButtonBootstrap type="submit" className={"bg-primary rounded rounded-2 text-white py-2 px-5"}>
                             Thanh toán
                         </ButtonBootstrap>
