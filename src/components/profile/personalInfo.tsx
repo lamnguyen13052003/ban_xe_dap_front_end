@@ -114,7 +114,7 @@ function ProfileForm() {
     return (
         <Card border="light" className="bg-white shadow-sm mb-4">
             <Card.Body>
-                <h5 className="mb-4">Thông tin cá nhân</h5>
+                <h4 className="mb-4">Thông tin cá nhân</h4>
                 <Form onSubmit={handleSubmitUpdateProfile(onSubmitUpdateProfile)}>
                     <Row>
                         <Col md={12} className="mb-3">
