@@ -152,13 +152,14 @@ function Home() {
 }
 
 const renderCarousel = () => {
-    return <Carousel key={"Carousel_list"} className={'w-100'}>
+    return <Carousel key={"Carousel_list"} className={'w-100 rounded-3 overflow-hidden'}>
         {banner_images.map((image, index) => {
-            return (<Carousel.Item key={index} style={{
-                maxHeight: "600px",
-                minHeight: "200px"
-            }}>
-                <Image src={image} rounded className={'h-100'} width={'100%'}/>
+            return (<Carousel.Item key={index}>
+                <Image src={image} style={{
+                    maxHeight: "400px",
+                    minHeight: "200px",
+                    width: "100%"
+                }}/>
             </Carousel.Item>)
         })}
     </Carousel>
