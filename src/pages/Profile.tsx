@@ -52,7 +52,7 @@ function BillManager() {
         }
 
         if (bills.length) return;
-        axiosHttp.get<any, AxiosResponse<ResponseApi<InfoPayType[]>>, any>("/api/bills/{auth._id}")
+        axiosHttp.get<any, AxiosResponse<ResponseApi<InfoPayType[]>>, any>(`/api/bills/${auth._id}`)
             .then((response) => {
                 const data = response.data.data;
                 if (!data) setBills([])
