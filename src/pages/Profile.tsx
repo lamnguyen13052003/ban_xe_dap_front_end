@@ -9,6 +9,7 @@ import {RootState} from "../configs/store";
 import {useNavigate} from "react-router-dom";
 import {AxiosResponse} from "axios";
 import {ResponseApi} from "../types/response.type";
+import {Box} from "@mui/material";
 
 export type MenuItem = "" | "BILL"
 
@@ -52,7 +53,7 @@ function BillManager() {
         }
 
         if (bills.length) return;
-        axiosHttp.get<any, AxiosResponse<ResponseApi<InfoPayType[]>>, any>("/api/bills/{auth._id}")
+        axiosHttp.get<any, AxiosResponse<ResponseApi<InfoPayType[]>>, any>(`/api/bills/${auth._id}`)
             .then((response) => {
                 const data = response.data.data;
                 if (!data) setBills([])
@@ -63,31 +64,49 @@ function BillManager() {
     return (
         <Card border="light" className="bg-white shadow-sm mb-4 p-3">
             <h4>Quản lý hóa đơn</h4>
-            <Row className={"fs-5 mt-3"}>
-                <Col xs={1}>STT</Col>
-                <Col xs={2}>Ho và tên</Col>
-                <Col xs={2}>SĐT</Col>
-                <Col xs={5}>Địa chỉ</Col>
-                <Col xs={2} className={"text-center"}>Phương thức thanh toán</Col>
-            </Row>
-            {
-                bills.map((value, index) =>
-                    <BillItem data={value} index={index} key={index}/>
-                )
-            }
+            <Box className={"border mt-3 border-1 rounded rounded-3 overflow-x-hidden"}>
+                <Row className={"fs-5 p-2 m-0"}>
+                    <Col xs={1}>STT</Col>
+                    <Col xs={2}>Họ và tên</Col>
+                    <Col xs={2}>SĐT</Col>
+                    <Col xs={2}>email</Col>
+                    <Col xs={3}>Địa chỉ</Col>
+                    <Col xs={2} className={"text-center"}>Phương thức thanh toán</Col>
+                </Row>
+                <hr className={"m-0"}/>
+                {
+                    bills.map((value, index) =>
+                        <BillItem data={value} index={index} key={index}/>
+                    )
+                }
+            </Box>
         </Card>
     )
 }
 
 function BillItem(props: { index: number, data: InfoPayType }) {
     const {fullName, email, phoneNumber, fullAddress, payMethod} = props.data
+
     return (
-        <Row>
-            <Col xs={1}>{props.index}</Col>
-            <Col xs={2}>{fullName}</Col>
-            <Col xs={2}>{email}</Col>
-            <Col xs={5}>{fullAddress}</Col>
-            <Col xs={2} className={"text-center"}>{payMethod}</Col>
+        <Row className={`${props.index % 2 === 0 ? 'bg-white' : "bg-secondary-subtle"}  p-2 m-0`}>
+            <Col xs={1}>
+                {props.index}
+            </Col>
+            <Col xs={2}>
+                {fullName}
+            </Col>
+            <Col xs={2}>
+                {phoneNumber}
+            </Col>
+            <Col xs={2}>
+                {email}
+            </Col>
+            <Col xs={3}>
+                {fullAddress}
+            </Col>
+            <Col xs={2} className={"text-center"}>
+                {payMethod}
+            </Col>
         </Row>
     );
 }
